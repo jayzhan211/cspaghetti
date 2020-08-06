@@ -117,8 +117,24 @@ const int MOD = 1e9 + 7;
 
 
 int main() {
-    cout << fixed << setprecision(10);
+    // cout << fixed << setprecision(10);
     ios::sync_with_stdio(false), cin.tie(nullptr);
-    cout << "I love Coshunie <3" << endl;
-    return 0;
+
+    int n;
+    cin >> n;
+    bitset<N> s;
+    s.set(0);
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        s |= s << x;
+        sum += x;
+    }
+    for (int i = (sum + 1) / 2;; i++) {
+        if (s.test(i)) {
+            cout << i << endl;
+            return 0;
+        }
+    }
 }
