@@ -1,1 +1,2 @@
-* 1114F `segtree`
+* 1114f `segtree`
+* 1299c `greedy`
