@@ -55,4 +55,4 @@ _deps
 out
 gen
 
-main.cpp
+cmake-build-debug/cspaghetti.cbp
