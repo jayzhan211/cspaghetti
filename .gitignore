@@ -54,3 +54,5 @@ _deps
 *.iml
 out
 gen
+
+main.cpp
