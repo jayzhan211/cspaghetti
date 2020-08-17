@@ -98,4 +98,66 @@ const double eps = 1e-6;
 
 int main() {
   ios::sync_with_stdio(false), cin.tie(nullptr);
+
+  int n, m;
+  cin >> n >> m;
+
+  vector<int> a(m);
+  for (int i = 0; i < m; i++) {
+    cin >> a[i];
+  }
+  sort(a.begin(), a.end());
+
+  int G, R;
+  cin >> G >> R;
+
+  int ans = INT_MAX;
+
+  deque<pair<int, int>> dq;
+  vector<vector<int>> dis(m, vector<int>(G, -1));
+  dq.emplace_back(0, 0);
+  dis[0][0] = 0;
+
+  auto upd = [&](int i, int t, int val) {
+    if (t > G) {
+      return;
+    }
+    if (t == G) {
+      val++;
+      t = 0;
+    }
+
+    if (dis[i][t] == -1) {
+      dis[i][t] = val;
+      if (t) {
+        dq.emplace_front(i, t);
+      } else {
+        dq.emplace_back(i, t);
+      }
+    }
+  };
+
+  while (!dq.empty()) {
+    int u = dq.front().first;
+    int t = dq.front().second;
+    dq.pop_front();
+    if (u + 1 < m) {
+      upd(u + 1, t + a[u + 1] - a[u], dis[u][t]);
+    }
+    if (u) {
+      upd(u - 1, t + a[u] - a[u - 1], dis[u][t]);
+    }
+  }
+
+  for (int i = 0; i < G; i++) {
+    if (dis[m - 1][i] != -1) {
+      set_min(ans, dis[m - 1][i] * (G + R) + i - (i ? 0 : R));
+    }
+  }
+
+  if (ans == INT_MAX) {
+    ans = -1;
+  }
+
+  cout << ans << endl;
 }
