@@ -1,3 +1,4 @@
+* 1430d `greedy`
 * 1342e2 `implementation`
 * 1340c `01-bfs`
 * 1299c `greedy`
