@@ -1,4 +1,5 @@
 * 1430d `greedy`
+* 1428F `dp`
 * 1396c `dp`
 * 1394B `dfs and similar` `graphs` `hashing`
 * 1342e2 `implementation`
