@@ -9,3 +9,4 @@
 * 1114f `segtree`
 * 985e `dp` `greedy`
 * 875e `binary search`
+* 1519d `trie`
