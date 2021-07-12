@@ -10,3 +10,4 @@
 * 985e `dp` `greedy`
 * 875e `binary search`
 * 1519d `trie`
+* 1547g `dfs and similar` `trees`
